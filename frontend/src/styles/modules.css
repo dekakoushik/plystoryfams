@@ -1,0 +1,308 @@
+/* Module Specific Layouts & Chart Panels (Clean Light Corporate Look) */
+
+.dashboard-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.dashboard-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 1200px) {
+  .dashboard-row-2,
+  .dashboard-row-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reference Style Visual Chart Box */
+.chart-box-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-card);
+}
+
+.chart-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+.chart-box-title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.chart-box-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+/* SVG Chart Mock Visuals (Matching Reference Graphic Styles) */
+.area-chart-svg-wrap {
+  width: 100%;
+  height: 150px;
+  position: relative;
+}
+
+.bar-chart-columns-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 140px;
+  padding: 10px 0 0 0;
+  gap: 6px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.bar-col-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+.bar-col-bar {
+  width: 100%;
+  max-width: 14px;
+  background: #3498db;
+  border-radius: 2px 2px 0 0;
+  transition: height 0.5s ease;
+}
+.bar-col-bar.amber { background: #f39c12; }
+.bar-col-bar.teal { background: #1abc9c; }
+.bar-col-bar.rose { background: #e74c3c; }
+
+.chart-bottom-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding-top: 12px;
+  margin-top: 8px;
+  text-align: center;
+}
+.cbm-item {
+  display: flex;
+  flex-direction: column;
+}
+.cbm-label {
+  font-size: 0.68rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+.cbm-val {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 2px;
+  font-family: var(--font-mono);
+}
+
+/* Form Styles */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.form-group.col-span-2 { grid-column: span 2; }
+.form-group.col-span-3 { grid-column: span 3; }
+
+/* Timeline component for Asset History */
+.audit-timeline {
+  position: relative;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.audit-timeline::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 7px;
+  width: 2px;
+  background: #e2e8f0;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-bullet {
+  position: absolute;
+  left: -24px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timeline-bullet.emerald { border-color: #2ecc71; }
+.timeline-bullet.amber { border-color: #f39c12; }
+.timeline-bullet.rose { border-color: #e74c3c; }
+
+.timeline-content {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 3px;
+  padding: 10px 14px;
+}
+
+.timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.timeline-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.timeline-time {
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+/* Master Data Nav Tabs */
+.master-subnav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.master-subnav-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 5px 12px;
+  border-radius: 3px;
+  color: #475569;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.master-subnav-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.master-subnav-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Barcode Card Grid */
+.barcode-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.barcode-badge-card {
+  background: #ffffff;
+  color: #1e293b;
+  padding: 14px;
+  border-radius: 3px;
+  border: 1px dashed #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.barcode-company {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.barcode-asset-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.barcode-visual {
+  background: #f8fafc;
+  padding: 6px 10px;
+  border-radius: 3px;
+  margin: 6px 0;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.qr-code-box {
+  width: 90px;
+  height: 90px;
+  background: #1e293b;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.barcode-footer {
+  font-size: 0.68rem;
+  color: #64748b;
+  margin-top: 4px;
+}

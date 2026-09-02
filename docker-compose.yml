@@ -1,0 +1,21 @@
+services:
+  fams-app:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: plystory-fams
+    restart: unless-stopped
+    ports:
+      - "${FAMS_PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    labels:
+      - "dockploy.enable=true"
+      - "dockploy.port=3000"

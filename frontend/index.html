@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plystory FAMS - Fixed Asset Management System</title>
+    <meta name="description" content="Plystory Fixed Asset Management System - Statutory Fixed Asset Management System" />
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/theme.css">
+    <link rel="stylesheet" href="/src/styles/components.css">
+    <link rel="stylesheet" href="/src/styles/modules.css">
+  </head>
+  <body>
+    <div id="app" class="app-layout">
+      
+      <!-- Ynex Midnight Navy Sidebar (Left) -->
+      <aside class="app-sidebar" id="appSidebar">
+        <!-- Sidebar Brand Logo Header -->
+        <div class="sidebar-brand-header">
+          <img src="/plystory-logo.png" alt="Plystory Logo" class="sidebar-brand-logo" />
+          <div style="display:flex; flex-direction:column;">
+            <span style="letter-spacing: 0.05em; font-weight:800; font-size:1.05rem; color:#ffffff;">PLYSTORY</span>
+            <span style="color:#845adf; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">FAMS</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-section-title">Main</div>
+          <a href="#dashboard" class="nav-item active" data-tab="dashboard">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <div class="nav-section-title">Asset Management</div>
+          <a href="#assets" class="nav-item" data-tab="assets">
+            <i data-lucide="boxes"></i>
+            <span>Asset Register (FAR)</span>
+          </a>
+          <a href="#asset-history" class="nav-item" data-tab="asset-history">
+            <i data-lucide="history"></i>
+            <span>Asset History Trail</span>
+          </a>
+
+          <div class="nav-section-title">Master & Admin</div>
+          <a href="#master-modules" class="nav-item" data-tab="master-modules">
+            <i data-lucide="database"></i>
+            <span>Master Module</span>
+          </a>
+          <a href="#admin-users" class="nav-item" data-tab="admin-users">
+            <i data-lucide="users"></i>
+            <span>User & Role Matrix</span>
+          </a>
+          <a href="#smtp-config" class="nav-item" data-tab="smtp-config">
+            <i data-lucide="mail-check"></i>
+            <span>SMTP Mail Config</span>
+          </a>
+          <a href="#admin-logs" class="nav-item" data-tab="admin-logs">
+            <i data-lucide="shield-alert"></i>
+            <span>System Audit Logs</span>
+          </a>
+
+          <div class="nav-section-title" style="margin-top:auto;">Account</div>
+          <a href="javascript:void(0)" class="nav-item" id="sidebarViewProfileBtn">
+            <i data-lucide="user-circle"></i>
+            <span>My Profile</span>
+          </a>
+          <a href="javascript:void(0)" class="nav-item" id="sidebarLogoutBtn" style="color:#f87171;">
+            <i data-lucide="log-out" style="color:#f87171;"></i>
+            <span>Logout</span>
+          </a>
+        </nav>
+      </aside>
+
+        <!-- Main Content Area -->
+        <main class="app-main">
+          <!-- Top White Modern Navbar Strip (Ynex Header) -->
+          <header class="top-navbar-strip">
+            <div class="top-navbar-left">
+              <div class="top-search-box">
+                <i data-lucide="search" style="position:absolute; left:12px; width:15px; height:15px; color:#8c9097;"></i>
+                <input type="text" class="top-search-input" id="globalSearchInput" placeholder="Search Assets, Barcodes, Plants, Serial..." />
+              </div>
+            </div>
+
+            <div class="top-navbar-right">
+              <div style="display: flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight:600; color: #495667; background: #f4f6fa; padding: 6px 12px; border-radius: 20px; border:1px solid #eaedf1;">
+                <span>🇮🇳 <strong>INR (₹)</strong> Compliance</span>
+              </div>
+
+              <button class="top-icon-btn" title="Live QR Scanner" id="btnQuickScan">
+                <i data-lucide="camera" style="width: 16px; height: 16px;"></i>
+              </button>
+
+              <button class="top-icon-btn" title="Notifications" id="btnNotifications">
+                <i data-lucide="bell" style="width: 16px; height: 16px;"></i>
+                <span class="top-badge-count">3</span>
+              </button>
+
+              <!-- Profile Trigger -->
+              <div id="btnTopUserProfile" style="display: flex; align-items: center; gap: 10px; cursor: pointer; border-left: 1px solid #eaedf1; padding-left: 14px; margin-left: 6px;" title="Click to View / Edit Profile & Reset Password">
+                <div id="topProfileAvatar" style="width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #845adf, #23b7e5); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; box-shadow: 0 2px 6px rgba(132, 90, 223, 0.3);">
+                  IT
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                  <span id="topProfileName" style="font-size: 0.82rem; font-weight: 700; color: #1e293b;">IT Helpdesk Admin</span>
+                  <span id="topProfileRole" style="font-size: 0.68rem; color: #8c9097;">Super Admin</span>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <!-- Breadcrumbs Strip -->
+          <div class="app-sub-header">
+            <div class="breadcrumb-area">
+              <span class="breadcrumb-home"><i data-lucide="home" style="width: 14px; height: 14px; color:#845adf;"></i> Home</span>
+              <span class="breadcrumb-separator">&gt;</span>
+              <span class="breadcrumb-current" id="currentViewTitle">Dashboard</span>
+            </div>
+
+            <div class="sub-header-actions">
+              <span style="font-size: 0.78rem; font-weight:600; color: #64748b; background:#f4f6fa; padding:4px 10px; border-radius:6px;"><i data-lucide="calendar" style="width: 13px; height: 13px; vertical-align: middle; color:#845adf;"></i> FY 2025 - 2026</span>
+              <button class="btn btn-primary btn-sm" id="btnRegisterAssetModal" style="margin-left: 8px;">
+                <i data-lucide="plus"></i> New Asset Entry
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Container for Active Module -->
+          <div class="module-container" id="moduleContainer">
+            <!-- Views rendered by SPA Router in main.js -->
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Generic Modal Wrapper -->
+    <div class="modal-backdrop" id="modalBackdrop" style="display: none;">
+      <div class="modal-card" id="modalCard">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <div class="modal-icon-badge" id="modalIcon">
+              <i data-lucide="info"></i>
+            </div>
+            <div>
+              <h3 class="modal-title" id="modalTitle">Modal Header</h3>
+              <p class="modal-subtitle" id="modalSubtitle">Details & action</p>
+            </div>
+          </div>
+          <button class="modal-close-btn" id="modalCloseBtn">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <!-- Dynamic Content -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Full-screen Auth Login Overlay -->
+    <div id="loginOverlay" class="login-overlay-backdrop" style="display: none;"></div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-stack" id="toastStack"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

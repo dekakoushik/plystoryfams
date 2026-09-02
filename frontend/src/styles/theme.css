@@ -1,0 +1,344 @@
+/* Production-Ready Enterprise Theme (Ynex / Tailwind / Carbon Inspired) */
+:root {
+  --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Modern Slate / Midnight Indigo Sidebar */
+  --bg-app: #f4f6fa;
+  --bg-sidebar: #0f172a;
+  --bg-sidebar-dark: #090e1a;
+  --bg-sidebar-hover: rgba(255, 255, 255, 0.07);
+  --bg-sidebar-active: #6366f1; /* Premium Indigo Accent */
+  --bg-sidebar-section: #0f172a;
+
+  --bg-header-top: #ffffff;
+  --bg-header-sub: #ffffff;
+  
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --bg-surface: #f8fafc;
+  --bg-input: #ffffff;
+  
+  --border-color: #e2e8f0;
+  --border-light: #f1f5f9;
+  --border-sidebar: rgba(255, 255, 255, 0.08);
+  --border-focus: #6366f1;
+
+  /* Typography Colors */
+  --text-main: #334155;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --text-dim: #94a3b8;
+  --text-inverse: #ffffff;
+  --text-sidebar: #94a3b8;
+  --text-sidebar-bright: #ffffff;
+
+  /* Professional Color Palette */
+  --primary: #6366f1; /* Indigo Signature Brand */
+  --primary-hover: #4f46e5;
+  --primary-light: #eef2ff;
+  --primary-glow: rgba(99, 102, 241, 0.2);
+
+  --accent-cyan: #06b6d4;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-orange: #f97316;
+  --accent-rose: #ef4444;
+  --accent-purple: #8b5cf6;
+  --accent-blue: #3b82f6;
+
+  /* Status Badges */
+  --status-instock: #10b981;
+  --status-assigned: #6366f1;
+  --status-maintenance: #f59e0b;
+  --status-disposed: #ef4444;
+  --status-transfer: #06b6d4;
+
+  /* Soft Enterprise Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* App Main Layout Structure */
+.app-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Top White Crisp Header Bar (Ynex Style) */
+.top-navbar-strip {
+  height: 56px;
+  background: #ffffff;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--border-color);
+  z-index: 50;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.top-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.top-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.top-search-input {
+  background: #f4f6fa;
+  border: 1px solid #e5e9f2;
+  border-radius: 6px;
+  padding: 7px 14px 7px 34px;
+  color: #334155;
+  font-size: 0.82rem;
+  width: 320px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+.top-search-input:focus {
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(132, 90, 223, 0.1);
+}
+.top-search-input::placeholder {
+  color: #a3a6ad;
+}
+
+.top-navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.top-icon-btn {
+  background: #f4f6fa;
+  border: 1px solid transparent;
+  color: #64748b;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+.top-icon-btn:hover {
+  background: #ede9fe;
+  color: var(--primary);
+}
+.top-badge-count {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: #e6533c;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 1px 5px;
+}
+
+/* Sidebar Styles (Ynex Midnight Navy) */
+.app-sidebar {
+  width: 250px;
+  min-width: 250px;
+  background: var(--bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  user-select: none;
+  z-index: 60;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-brand-header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 12px;
+  background: #0d1636;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.sidebar-brand-logo {
+  height: 30px;
+  width: auto;
+  border-radius: 4px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-section-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #636d8e;
+  padding: 14px 12px 6px 12px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 14px;
+  color: var(--text-sidebar);
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+}
+
+.nav-item i {
+  width: 17px;
+  height: 17px;
+  color: #7b88af;
+  transition: color var(--transition-fast);
+}
+
+.nav-item:hover {
+  background-color: var(--bg-sidebar-hover);
+  color: var(--text-sidebar-bright);
+}
+.nav-item:hover i {
+  color: #ffffff;
+}
+
+.nav-item.active {
+  background-color: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(132, 90, 223, 0.35);
+}
+.nav-item.active i {
+  color: #ffffff;
+}
+
+.nav-badge {
+  margin-left: auto;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* App Main Container */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-app);
+}
+
+/* Sub-Header / Breadcrumb Header */
+.app-sub-header {
+  height: 48px;
+  min-height: 48px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.breadcrumb-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+}
+.breadcrumb-home {
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.breadcrumb-separator {
+  color: #cbd5e1;
+  font-size: 0.75rem;
+}
+.breadcrumb-current {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.sub-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Module Content Area */
+.module-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+  background: var(--bg-app);
+}
