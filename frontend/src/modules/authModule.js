@@ -14,110 +14,142 @@ export function renderLoginOverlay() {
 
   loginContainer.style.display = 'flex';
   loginContainer.innerHTML = `
-    <div class="login-upteam-wrapper">
+    <div class="corp-login-container">
       
-      <!-- Split Card Container -->
-      <div class="login-upteam-card">
+      <!-- Premium Enterprise Login Card -->
+      <div class="corp-login-card">
         
-        <!-- Left Column: Vibrant Cobalt Blue Hero Banner -->
-        <div class="login-upteam-left">
+        <!-- Left Side: Corporate Hero & Brand Showcase -->
+        <div class="corp-login-hero">
+          <div class="corp-hero-glow"></div>
           
-          <!-- Brand Logo Header -->
-          <div class="upteam-brand-header">
-            <img src="/plystory-logo.png" alt="Plystory Logo" style="height:32px; filter:brightness(0) invert(1);" />
-            <span class="upteam-brand-name">PLYSTORY</span>
-          </div>
-
-          <!-- Center Vector Asset Clipboard Art -->
-          <div class="upteam-art-center">
-            <div class="upteam-clipboard-art">
-              <div class="upteam-clip-header"></div>
-              <div class="upteam-clipboard-body">
-                <div class="upteam-check-line"><span class="upteam-check">✓</span> <span class="upteam-dash"></span></div>
-                <div class="upteam-check-line"><span class="upteam-cross">✕</span> <span class="upteam-dash long"></span></div>
-                <div class="upteam-check-line"><span class="upteam-check">✓</span> <span class="upteam-dash"></span></div>
-              </div>
-              <div class="upteam-pencil-art"></div>
+          <!-- Brand Badge -->
+          <div class="corp-brand-header">
+            <div class="corp-brand-logo-wrap">
+              <img src="/plystory-logo.png" alt="Plystory" class="corp-brand-logo" />
+            </div>
+            <div>
+              <div class="corp-brand-title">PLYSTORY</div>
+              <div class="corp-brand-subtitle">Asset Management Suite</div>
             </div>
           </div>
 
-          <!-- Bottom Welcome Text & Carousel Dots -->
-          <div class="upteam-welcome-footer">
-            <h2 class="upteam-welcome-title">Welcome!</h2>
-            <p class="upteam-welcome-sub">Statutory Fixed Asset Management System & Audit Portal.</p>
+          <!-- Enterprise Value Badges / Metric Showcase -->
+          <div class="corp-hero-content">
+            <div class="corp-security-badge">
+              <i data-lucide="shield-check" class="corp-shield-icon"></i>
+              <span>ISO 27001 & Statutory Audit Compliant</span>
+            </div>
             
-            <div class="upteam-dots-row">
-              <span class="upteam-dot active"></span>
-              <span class="upteam-dot"></span>
-              <span class="upteam-dot"></span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Right Column: Clean White Form Pane -->
-        <div class="login-upteam-right">
-          
-          <div class="upteam-form-inner">
-            <h1 class="upteam-login-title">Log In</h1>
-            <p class="upteam-signup-prompt">
-              Plystory FAMS &bull; <span style="color:#0066ff; font-weight:600;">Statutory Compliance</span>
+            <h2 class="corp-hero-headline">
+              Precision Fixed Asset Lifecycle & Financial Compliance
+            </h2>
+            <p class="corp-hero-desc">
+              Centralized capital asset tracking, automated depreciation schedules under Companies Act 2013 & IT Act, with full audit trail integrity.
             </p>
 
-            <form id="formFamsLogin" class="upteam-form-body">
+            <div class="corp-feature-chips">
+              <div class="corp-chip">
+                <i data-lucide="calculator" class="chip-icon"></i>
+                <span>WDV & SLM Depreciation</span>
+              </div>
+              <div class="corp-chip">
+                <i data-lucide="qr-code" class="chip-icon"></i>
+                <span>Barcode & Geo Audit</span>
+              </div>
+              <div class="corp-chip">
+                <i data-lucide="history" class="chip-icon"></i>
+                <span>Chain of Custody</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Footer Note -->
+          <div class="corp-hero-footer">
+            <div class="corp-system-status">
+              <span class="status-pulse-dot"></span>
+              <span>Statutory Compliance Engine Active</span>
+            </div>
+            <span class="corp-version-tag">v2.4.0-Enterprise</span>
+          </div>
+        </div>
+
+        <!-- Right Side: Corporate Sign-In Form -->
+        <div class="corp-login-form-pane">
+          <div class="corp-form-container">
+            
+            <div class="corp-form-header">
+              <div class="corp-portal-badge">Corporate Sign In</div>
+              <h1 class="corp-login-heading">Welcome Back</h1>
+              <p class="corp-login-subheading">Access your enterprise asset management portal</p>
+            </div>
+
+            <form id="formFamsLogin" class="corp-auth-form" autocomplete="on">
               
-              <!-- Username / Email Input -->
-              <div class="upteam-field-group">
-                <div class="upteam-input-wrap">
+              <!-- Username / Email Field -->
+              <div class="corp-input-group">
+                <label for="loginUsername" class="corp-label">Work Email / Username</label>
+                <div class="corp-input-wrapper">
+                  <i data-lucide="mail" class="corp-field-icon"></i>
                   <input 
                     type="text" 
                     id="loginUsername" 
-                    class="upteam-line-input" 
+                    class="corp-input-field" 
                     value="ithelpdesk@plystory.com" 
-                    placeholder="Username or Email"
+                    placeholder="name@plystory.com"
+                    autocomplete="username"
                     required 
                   />
-                  <i data-lucide="user" class="upteam-input-icon"></i>
                 </div>
               </div>
 
-              <!-- Password Input -->
-              <div class="upteam-field-group" style="margin-top:28px;">
-                <div class="upteam-input-wrap">
+              <!-- Password Field -->
+              <div class="corp-input-group">
+                <div class="corp-label-row">
+                  <label for="loginPassword" class="corp-label">Security Password</label>
+                  <a href="javascript:void(0)" id="btnForgotPassPrompt" class="corp-forgot-link">
+                    Forgot Password?
+                  </a>
+                </div>
+                <div class="corp-input-wrapper">
+                  <i data-lucide="lock" class="corp-field-icon"></i>
                   <input 
                     type="password" 
                     id="loginPassword" 
-                    class="upteam-line-input" 
+                    class="corp-input-field" 
                     value="Kdeka@2602" 
-                    placeholder="Password"
+                    placeholder="Enter your corporate password"
+                    autocomplete="current-password"
                     required 
                   />
-                  <i data-lucide="lock" class="upteam-input-icon"></i>
+                  <button type="button" id="btnTogglePass" class="corp-pwd-toggle" title="Toggle password visibility">
+                    <i data-lucide="eye" id="togglePassIcon" class="toggle-icon"></i>
+                  </button>
                 </div>
               </div>
 
-              <!-- Sign In Button & Remember Password Checkbox Row -->
-              <div class="upteam-action-row" style="margin-top:32px;">
-                <button type="submit" class="upteam-signin-btn">
-                  Sign in
-                </button>
-
-                <label class="upteam-remember-label">
-                  <input type="checkbox" id="chkRememberPass" checked />
-                  <span>Remember password</span>
+              <!-- Remember & Options Row -->
+              <div class="corp-options-row">
+                <label class="corp-checkbox-label">
+                  <input type="checkbox" id="chkRememberPass" checked class="corp-custom-checkbox" />
+                  <span>Keep me signed in on this workstation</span>
                 </label>
               </div>
 
-              <!-- Forgot Password Link -->
-              <div style="text-align:center; margin-top:28px;">
-                <a href="javascript:void(0)" id="btnForgotPassPrompt" class="upteam-forgot-link">
-                  Forget your password?
-                </a>
+              <!-- Submit Action Button -->
+              <button type="submit" id="btnSubmitLogin" class="corp-submit-btn">
+                <span class="btn-text">Sign In to FAMS Portal</span>
+                <i data-lucide="arrow-right" class="btn-icon"></i>
+              </button>
+
+              <!-- Enterprise Notice -->
+              <div class="corp-login-disclaimer">
+                <i data-lucide="info" style="width:13px; height:13px; flex-shrink:0;"></i>
+                <span>Authorized personnel only. All access attempts are recorded in the security audit ledger.</span>
               </div>
 
             </form>
           </div>
-
         </div>
 
       </div>
@@ -127,6 +159,23 @@ export function renderLoginOverlay() {
 
   if (window.lucide && typeof window.lucide.createIcons === 'function') {
     window.lucide.createIcons({ icons: window.lucide.icons });
+  }
+
+  // Password visibility toggle
+  const togglePassBtn = document.getElementById('btnTogglePass');
+  const passInput = document.getElementById('loginPassword');
+  if (togglePassBtn && passInput) {
+    togglePassBtn.onclick = () => {
+      const isPassword = passInput.type === 'password';
+      passInput.type = isPassword ? 'text' : 'password';
+      const icon = document.getElementById('togglePassIcon');
+      if (icon) {
+        icon.setAttribute('data-lucide', isPassword ? 'eye-off' : 'eye');
+        if (window.lucide && typeof window.lucide.createIcons === 'function') {
+          window.lucide.createIcons({ icons: window.lucide.icons });
+        }
+      }
+    };
   }
 
   // Forgot password handler

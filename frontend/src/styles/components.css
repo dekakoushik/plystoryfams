@@ -447,306 +447,472 @@
 .toast-info { border-left: 4px solid #3498db; }
 
 /* ==========================================================================
-   Clean Professional Upteamist Login Design
+   Clean Corporate Executive Login Design (FAMS Enterprise)
    ========================================================================== */
 .login-overlay-backdrop {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at center, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+  background: radial-gradient(120% 120% at 50% 10%, #0f172a 0%, #090e17 100%);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
-  overflow: hidden;
+  overflow-y: auto;
   font-family: var(--font-primary);
+  backdrop-filter: blur(8px);
 }
 
-.login-upteam-wrapper {
+.login-overlay-backdrop::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 15% 25%, rgba(99, 102, 241, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(14, 165, 233, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 0.4) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.corp-login-container {
   width: 100%;
-  max-width: 900px;
+  max-width: 980px;
+  position: relative;
+  z-index: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
-.login-upteam-card {
+.corp-login-card {
   width: 100%;
-  min-height: 520px;
+  min-height: 560px;
   background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 8px 24px -4px rgba(15, 23, 42, 0.25);
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-/* Left Hero Banner Pane (Vibrant Cobalt Blue) */
-.login-upteam-left {
-  background: #0066ff;
-  padding: 36px 42px;
+/* Left Hero & Corporate Showcase */
+.corp-login-hero {
+  position: relative;
+  background: linear-gradient(145deg, #0b1329 0%, #111c38 50%, #0d1730 100%);
+  padding: 44px 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
   overflow: hidden;
+  color: #ffffff;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.upteam-brand-header {
+.corp-hero-glow {
+  position: absolute;
+  top: -120px;
+  left: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.corp-brand-header {
   display: flex;
   align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.corp-brand-logo-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  padding: 4px;
+}
+
+.corp-brand-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.corp-brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.corp-brand-subtitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.corp-hero-content {
+  margin: 32px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.corp-security-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  color: #c7d2fe;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+.corp-shield-icon {
+  width: 14px;
+  height: 14px;
+  color: #818cf8;
+}
+
+.corp-hero-headline {
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: #f8fafc;
+  margin-bottom: 14px;
+}
+
+.corp-hero-desc {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin-bottom: 26px;
+  max-width: 380px;
+}
+
+.corp-feature-chips {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
-.upteam-brand-name {
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 1.15rem;
-  letter-spacing: 0.04em;
-}
-
-/* Center Clipboard Illustration */
-.upteam-art-center {
+.corp-chip {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 24px 0;
-  position: relative;
-}
-
-.upteam-clipboard-art {
-  position: relative;
-  width: 130px;
-  height: 160px;
-  background: #ffffff;
-  border: 4px solid #0044bb;
-  border-radius: 16px;
-  box-shadow: 0 16px 30px rgba(0, 40, 150, 0.3);
-  display: flex;
-  flex-direction: column;
-  padding: 34px 18px 18px 18px;
-  transform: rotate(-4deg);
-}
-
-.upteam-clip-header {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 48px;
-  height: 22px;
-  background: #a3c8fc;
-  border: 3px solid #0044bb;
-  border-radius: 6px;
-}
-
-.upteam-clipboard-body {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.upteam-check-line {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.upteam-check {
-  color: #0066ff;
-  font-size: 0.95rem;
-  font-weight: 900;
-}
-
-.upteam-cross {
-  color: #0066ff;
-  font-size: 0.9rem;
-  font-weight: 900;
-}
-
-.upteam-dash {
-  width: 45px;
-  height: 5px;
-  background: #0066ff;
-  border-radius: 3px;
-}
-
-.upteam-dash.long {
-  width: 58px;
-}
-
-.upteam-pencil-art {
-  position: absolute;
-  bottom: -15px;
-  left: -20px;
-  width: 65px;
-  height: 16px;
-  background: #549bf8;
-  border: 3px solid #0044bb;
-  border-radius: 8px 3px 3px 8px;
-  transform: rotate(45deg);
-}
-
-/* Left Footer Welcome Text & Carousel Dots */
-.upteam-welcome-footer {
-  color: #ffffff;
-}
-
-.upteam-welcome-title {
-  font-size: 1.85rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 6px;
-}
-
-.upteam-welcome-sub {
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 9px 14px;
+  border-radius: 8px;
   font-size: 0.8rem;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 22px;
-  max-width: 320px;
+  color: #e2e8f0;
+  font-weight: 500;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.upteam-dots-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.corp-chip:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(99, 102, 241, 0.4);
 }
 
-.upteam-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: 2px solid #ffffff;
-  background: transparent;
+.corp-chip .chip-icon {
+  width: 15px;
+  height: 15px;
+  color: #818cf8;
 }
 
-.upteam-dot.active {
-  background: #ffffff;
-}
-
-/* Right Clean Form Pane */
-.login-upteam-right {
-  background: #ffffff;
-  padding: 44px 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.upteam-form-inner {
-  width: 100%;
-}
-
-.upteam-login-title {
-  font-size: 1.9rem;
-  font-weight: 700;
-  color: #0066ff;
-  letter-spacing: -0.02em;
-  margin-bottom: 6px;
-}
-
-.upteam-signup-prompt {
-  font-size: 0.78rem;
-  color: #8c9097;
-  margin-bottom: 32px;
-}
-
-.upteam-field-group {
-  position: relative;
-}
-
-.upteam-input-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.upteam-line-input {
-  width: 100%;
-  border: none;
-  border-bottom: 1.5px solid #eaedf1;
-  background: transparent;
-  padding: 10px 30px 10px 0;
-  font-size: 0.88rem;
-  color: #1e293b;
-  font-family: var(--font-primary);
-  outline: none;
-  transition: border-bottom-color 0.2s ease;
-}
-
-.upteam-line-input:focus {
-  border-bottom-color: #0066ff;
-}
-
-.upteam-input-icon {
-  position: absolute;
-  right: 4px;
-  width: 16px;
-  height: 16px;
-  color: #a3a6ad;
-}
-
-.upteam-action-row {
+.corp-hero-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 18px;
+  position: relative;
+  z-index: 2;
 }
 
-.upteam-signin-btn {
-  background: #0066ff;
-  color: #ffffff;
-  border: none;
-  padding: 9px 26px;
-  border-radius: 4px;
-  font-size: 0.86rem;
+.corp-system-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #10b981;
   font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+}
+
+.status-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+  animation: pulse-green 2s infinite ease-in-out;
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25); }
+  50% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.1); }
+}
+
+.corp-version-tag {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-family: var(--font-mono);
+}
+
+/* Right Form Pane */
+.corp-login-form-pane {
+  background: #ffffff;
+  padding: 44px 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.corp-form-container {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.corp-form-header {
+  margin-bottom: 28px;
+}
+
+.corp-portal-badge {
+  display: inline-block;
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.corp-login-heading {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin-bottom: 4px;
+}
+
+.corp-login-subheading {
+  font-size: 0.83rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.corp-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.corp-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.corp-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.corp-label {
+  font-size: 0.81rem;
+  font-weight: 600;
+  color: #334155;
+  letter-spacing: 0.01em;
+}
+
+.corp-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.corp-field-icon {
+  position: absolute;
+  left: 12px;
+  width: 17px;
+  height: 17px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.corp-input-field {
+  width: 100%;
+  height: 44px;
+  padding: 0 40px 0 38px;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: #0f172a;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  outline: none;
   transition: all 0.2s ease;
 }
 
-.upteam-signin-btn:hover {
-  background: #0052cc;
-  box-shadow: 0 6px 16px rgba(0, 102, 255, 0.4);
+.corp-input-field:focus {
+  background: #ffffff;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
-.upteam-remember-label {
+.corp-pwd-toggle {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 6px;
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.78rem;
-  color: #64748b;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+
+.corp-pwd-toggle:hover {
+  color: #475569;
+}
+
+.corp-pwd-toggle .toggle-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.corp-options-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.corp-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.79rem;
+  color: #475569;
+  cursor: pointer;
+  user-select: none;
+}
+
+.corp-custom-checkbox {
+  accent-color: #4f46e5;
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.upteam-remember-label input[type="checkbox"] {
-  accent-color: #0066ff;
-  width: 14px;
-  height: 14px;
-}
-
-.upteam-forgot-link {
+.corp-forgot-link {
   font-size: 0.78rem;
-  color: #0066ff;
+  color: #4f46e5;
   text-decoration: none;
-  font-weight: 500;
-  transition: text-decoration 0.15s ease;
+  font-weight: 600;
+  transition: color 0.15s ease;
 }
 
-.upteam-forgot-link:hover {
+.corp-forgot-link:hover {
+  color: #3730a3;
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-  .login-upteam-card {
+.corp-submit-btn {
+  height: 44px;
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+  transition: all 0.2s ease;
+  margin-top: 6px;
+}
+
+.corp-submit-btn:hover {
+  background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.45);
+  transform: translateY(-1px);
+}
+
+.corp-submit-btn:active {
+  transform: translateY(0);
+}
+
+.corp-submit-btn .btn-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.corp-submit-btn:hover .btn-icon {
+  transform: translateX(3px);
+}
+
+.corp-login-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: #94a3b8;
+  background: #f8fafc;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  margin-top: 8px;
+}
+
+/* Responsive Styles */
+@media (max-width: 860px) {
+  .corp-login-card {
     grid-template-columns: 1fr;
+    max-width: 440px;
   }
-  .login-upteam-left {
+  .corp-login-hero {
     display: none;
   }
-  .login-upteam-right {
-    padding: 36px 24px;
+  .corp-login-form-pane {
+    padding: 36px 28px;
   }
 }
+
